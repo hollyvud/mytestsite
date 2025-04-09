@@ -25,6 +25,7 @@
    <h1>Привет! Это моя первая страница</h1>
    <p>Сейчас мы проверим, как работает Яндекс Метрика 👀</p>
    <button class="track-button">Нажми на меня</button>
+   <a href="https://t.me/example" class="track-link" target="_blank">Перейти в Telegram</a>
 
    <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -39,7 +40,18 @@
       }
     });
   </script>
-  
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const link = document.querySelector('.track-link');
+      if (link) {
+        link.addEventListener('click', function () {
+          if (typeof ym !== 'undefined') {
+            ym(100866856, 'reachGoal', 'link_click'); // замени ID на свой
+            console.log('Событие link_click отправлено');
+          }
+        });
+      }
+    });
+  </script>
  </body>
  </html>
- 
