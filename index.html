@@ -27,6 +27,13 @@
    <button class="track-button">Нажми на меня</button>
    <a href="https://t.me/example" class="track-link" target="_blank">Перейти в Telegram</a>
 
+   <form id="contact-form">
+    <input type="text" name="name" placeholder="Ваше имя" required>
+    <input type="email" name="email" placeholder="Ваш email" required>
+    <button type="submit">Отправить</button>
+  </form>
+  
+
    <script>
     document.addEventListener('DOMContentLoaded', function () {
       const button = document.querySelector('.track-button');
@@ -53,5 +60,29 @@
       }
     });
   </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('contact-form');
+    if (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault(); // чтобы не перезагружалась страница
+
+        // Здесь могла бы быть реальная отправка данных
+
+        // Отправляем цель в Метрику
+        if (typeof ym !== 'undefined') {
+          ym(100866856, 'reachGoal', 'form_submit'); // замени ID на свой
+          console.log('Цель form_submit отправлена');
+        }
+
+        // Просто покажем сообщение
+        alert('Форма отправлена (условно)');
+      });
+    }
+  });
+</script>
+
  </body>
  </html>
+ 
